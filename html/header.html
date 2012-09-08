@@ -1,0 +1,139 @@
+<!-- load home_extras -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Speak To Me {% if page_title %} - {{ page_title }} {% endif %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/static/ajaxuploader/css/fileuploader.css" rel="stylesheet">
+    <!-- <link href="/static/dataTables/css/jquery.dataTables.css" rel="stylesheet">     -->
+    <link href="/static/css/style.css" rel="stylesheet">
+    <link href="/static/css/utils.css" rel="stylesheet">
+    <link href="/static/css/icons.css" rel="stylesheet">    
+    <link href="/static/css/dataTables.css" rel="stylesheet">
+        
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+ 
+    </style>
+    <link href="/static/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/">Speak To Me</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="/find">Find</a></li>
+              <li><a href="/hear">Hear</a></li>
+              <li><a href="/speak">Speak</a></li>              
+            </ul>
+            <ul class="nav pull-right">
+                <li class="">
+                  <div class="btn-group">
+                    <form class="navbar-search pull-left" action="{% url site_search %}">
+                      {% csrf_token %}
+                      <input type="text" id="q" name="q" class="search-query" placeholder="Search">
+                    </form>
+                    <button id="advancedSearch" class="btn btn-mini btn-inverse dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="advancedSearch">
+                      <li>
+                        <a href="/search/advanced/">Advanced Search</a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="divider-vertical"></li>
+                {% if not user.is_authenticated %}
+                <li class="">
+                   <a href="{% url site_signup %}">Sign Up</a> 
+                </li>
+                <li class="divider-vertical"></li>
+                <li class="">
+                  {% include "BrowserIdLogin.html" %}
+                </li>
+                {% else %}
+                <li class="">
+                  <div class="btn-group">
+                    <button id="notificationsButton" class="btn btn-mini btn-inverse dropdown-toggle" data-toggle="dropdown">
+                      <i class="icon-inbox icon-white"></i>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="notificationsButton">
+                        <li><a href="/notifications/all">All Notifications</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="active">
+                  <div class="btn-group">
+                    <button class="btn btn-mini btn-inverse">{{ user.email }}</button>
+                    <button id="userMenu" class="btn btn-mini btn-inverse dropdown-toggle" data-toggle="dropdown">
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="userMenu">
+                      <li>
+                        <a href="/profile/show">
+                          <i class="icon-user icon-black"></i> <strong>My Profile</strong>
+                        </a>
+                      </li>
+                      <li class="divider"></li>
+                      <li>
+                        <a href="/add/presentation">
+                          <i class="icon-user icon-plus-sign"></i> Add Presentation
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/add/location">
+                          <i class="icon-user icon-plus-sign"></i> Add Location
+                        </a>
+                      </li>
+                      <!--
+                      <li><a href="/add/Talk">Add Talk</a></li>
+                      -->
+                      <li class="divider"></li>                      
+                      <li>
+                        <a href="/profile/edit">
+                        <i class="icon-cog icon-black"></i> Edit Details
+                        </a>
+                      </li>
+                      <li class="divider"></li>
+                      <li>
+                        <a href="/logout">
+                        <i class="icon-off icon-black"></i> Sign Out
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>

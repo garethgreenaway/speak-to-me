@@ -1,0 +1,89 @@
+from django import forms
+
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Button, Div, Field, Fieldset, HTML, Hidden, Layout, MultiField, Row, Reset, Submit
+from crispy_forms.bootstrap import AppendedText, FormActions, PrependedText
+
+class AdvancedSearchForm(forms.Form):
+
+  speaker_name = forms.CharField(required=False)
+  company_name = forms.CharField(required=False)
+  location = forms.CharField(label="or enter", required=False)
+  location_choices = forms.ChoiceField(label="Select Location", required=False,
+    initial = '0',
+  )
+  distance = forms.ChoiceField(required=False,
+    choices = (
+      ('10', "10"),
+      ('20', "20"),
+      ('30', "30"),
+      ('50', "50")
+    ),
+    initial = '10',
+  )
+  measurement = forms.ChoiceField(required=False,
+    choices = (
+      ('miles', "miles"),
+      ('kilometers', "kilometers")
+    ),
+    initial = 'miles',
+  )  
+  topics = forms.CharField(required=False)
+
+  def __init__(self, *args, **kwargs):
+  
+    if kwargs.has_key('profile_locations'):
+      locs = kwargs.pop('profile_locations')
+      profile_locations = [('0', '----')]
+      for l in locs:
+        profile_locations.append((("%s,%s") % (l.latitude, l.longitude), l.nickname))
+    else:
+      profile_locations = None
+    
+    self.helper = FormHelper()
+    self.helper.form_id = "id-advanced-search-form"
+    self.helper.form_class = "form-horizontal"
+    self.helper.form_method = "get"
+    self.helper.form_action = ""
+
+    if profile_locations:
+      location_layout = Layout(
+        Div(
+          Field('location_choices', css_class="input-xlarge span6"),
+          Field('location', placeholder="city, state/province, country", css_class="input-xlarge span6"),
+          Field('distance', css_class="span1"),
+          Field('measurement', css_class="span2"),
+        )
+      )
+    else:
+      location_layout = Layout(
+        Div(
+          Field('location', placeholder="eg. city, state/province, country", css_class="input-xlarge span6"),
+          Field('distance', css_class="span1"),
+          Field('measurement', css_class="span2")
+        )      
+      )    
+    
+    self.helper.layout = Layout(
+        Fieldset(
+        'Advanced Search',
+        Field('speaker_name', css_class="input-xlarge"),
+        Field('company_name', css_class="input-xlarge"),
+        HTML("<hr />"),
+        location_layout,
+        HTML("<hr />"),
+        Field('topics', placeholder="eg. comma separated list of topics to search for", css_class="input-xlarge span6"),
+        Hidden('q','submitted')
+      ),
+      FormActions(
+        Div(
+          Submit('form-submit', 'Search', css_class="btn btn-success"),
+          Reset('form-reset', 'Reset', css_class="btn btn-danger"),
+          css_class="pull-right"
+        ),
+      )
+    )
+    super(AdvancedSearchForm, self).__init__(*args, **kwargs)
+    if profile_locations:    
+      self.fields['location_choices'].choices = profile_locations       
+

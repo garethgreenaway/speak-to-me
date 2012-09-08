@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+{% load dajaxice_templatetags %}
+{% include "header.html" %}
+
+    <div class="bg-home-1"></div>
+    <div id="main-container" class="container">
+    
+      <!-- Begin Tabs -->
+      <div class="row-fluid">
+        <ul id="myTab" class="nav nav-tabs" id="myTab">
+          {% if presentation_form %}
+          <li class="active">
+            <a href="#presentations" data-toggle="tab">Add Presentation</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+      
+      <div class="row-fluid tab-content">
+      {% if presentation_form %}
+        <div class="tab-pane active" id="presentations">
+          <div id="id-presentation-form-alert"></div>        
+          {% crispy presentation_form %}
+        </div>
+      {% endif %}
+      </div>
+      
+      <!-- End Tabs -->
+
+      <div class="row pull-right">
+        <hr />
+        <footer>
+          <p>&copy; Elemental Aardvark 2012</p>
+        </footer>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript" ></script>
+  <script src="http://code.jquery.com/jquery-1.7.1.js" type="text/javascript" ></script> 
+  <script src="/static/js/bootstrap.js" type="text/javascript" ></script>
+  <script src="/static/js/jquery.dajax.core.js" type="text/javascript" ></script>
+  <script src="/static/js/jquery.serializeObject.js" type="text/javascript"></script>
+  
+  <script src="https://browserid.org/include.js" type="text/javascript"></script>
+  
+  {% dajaxice_js_import %}
+  <script src="/static/ajaxuploader/js/fileuploader.js" type="text/javascript"></script>
+  <script src="/static/js/custom.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+    var uploader = new qq.FileUploader( {
+        action: "{% url ajax_upload %}",
+        element: $('#file-uploader')[0],
+        multiple: true,
+        onComplete: function( id, fileName, responseJSON ) {
+          console.log(responseJSON)
+          if( responseJSON.success ) {
+            $('#id_presentation_slides').val(responseJSON.path);
+            alert( "success!" ) ;
+          } else {
+            alert( "upload failed!" ) ;
+          }
+        },
+        onAllComplete: function( uploads ) {
+          // uploads is an array of maps
+          // the maps look like this: { file: FileObject, response: JSONServerResponse }
+          alert( "All complete!" ) ;
+        },
+        params: {
+          'csrf_token': '{{ csrf_token }}',
+          'csrf_name': 'csrfmiddlewaretoken',
+          'csrf_xname': 'X-CSRFToken',
+        },
+      } ) ;
+  </script>
+  
+  </body>
+</html>

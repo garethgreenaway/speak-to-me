@@ -1,0 +1,24 @@
+<body>
+	{% if form.errors %}
+		<p style="color: red;">
+			Please correct the error{{ form.errors|pluralize }} below.
+		</p>
+	{% endif %}
+
+	<form id="add-feed-form" action="" method="post">
+	{% csrf_token %}
+
+            {{ form.non_field_errors }}
+
+            <div class="fieldWrapper">
+            {{ form.subject.errors }}
+            <label for="id_url">Feed URL:</label>
+			{{ form.url }}
+            </div>
+
+		<input type="submit" value="Submit">
+
+	</form>
+
+</body>
+</html>

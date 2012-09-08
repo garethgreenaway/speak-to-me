@@ -1,0 +1,31 @@
+Login In
+  First Time
+    Find
+    Hear
+      Check for Profile
+        Profile Exists
+          Locations Exist
+            Show upcoming talks in area based on added locations
+            Show Search for talks
+          Locations Don't Exist
+            Show form to enter a location
+            Redirect to page showing upcoming talks and search
+        Profile Does Not Exist
+          Add a new profile with personal information and location
+          Redirect to page showing upcoming talks and search
+
+    Speak
+      Check for Profile
+        Profile Exists
+        Profile Does Not Exist
+          Create Profile
+      
+      
+http://code.google.com/p/geopy/wiki/GettingStarted
+
+Authenticated
+
+
+
+Not-Authenticated
+

@@ -1,0 +1,50 @@
+URL:
+http://74.121.1.202/
+username: visitor
+password: friend
+
+The idea (not all features implemented yet)
+--------------------------------------------
+Often times I find out that someone has given a really great talk on a topic that I'm interested in, after they've given it.  Or I find out someone is speaking close by to me but its too late to attend.  I'm building a website that will let people register and add in their location(s), then receive updates & updates on upcoming talks by particular speakers or on particular topics.
+
+The flip side, users interested in speaking or will be speaking at upcoming events can add presentations and upcoming talks to the site, allowing other users to find them.
+
+Where it stands
+---------------
+Users can register (right now using Mozilla Persona) and enter their information (address, personal info) and upload presentations.  Presentations can be tagged with topics.
+Searching and advanced searching.  At the moment the basic search feature will look for speakers whose name (first & last) or company name match the query or whose presentation titles match the query.  The advanced search allows the user to search by speaker name, company name, location and topics.  If the user is logged in, the advanced search allows using previously added addresses or ones they enter on the search page.  The search results for both right now are very basic.
+
+You can follow or unfollow someone but the logic of getting revent activity from them isn't completely hashed out yet.
+
+Nothing can be deleted or edited just yet.
+
+The future
+-----------
+Implement the missing features mentioned above.
+
+Allow the ability for event planners to pull speaker information in, eg. personal information & presentation information.
+
+Maybe tie into Lanyrd.
+
+Allow speakers to submit saved presentations to events without having to re-enter their information over and over again.
+
+I want to tie into services like Speaker Deck, SlideShare and others(?), allow previously uploaded presentations of those services to be included in the profile.
+
+Tie into sites like TripIt, which would synchronize locations for upcoming trips.
+
+Tie into video sites, Google Hangouts, blip.tv, etc.
+
+Export to calendar, eg. Google calendar, ics, etc.
+
+RSS Feed for updates
+
+Translate text
+
+Feedback I'm looking for
+-------------------------
+General site design, colors, etc.
+
+Features I mentioned, any features that I didn't mention.
+
+Anything else?
+

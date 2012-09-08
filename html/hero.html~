@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Speak To Me</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="css/style.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+ 
+    </style>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Speak To Me</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li class="pull-right">
+                <form class="form-search form-inline">
+                  <input type="text" class="input-small search-query" placeholder="Search">
+                </form>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- First Row -->
+      <div id="SpeakerInfoWell" class="row well">
+       <!-- Headshot Carousel -->
+        <div class="span4">
+        <!-- <i class="icon-plus"></i> -->
+            <div id="HeadShotCarousel" class="carousel slide">
+            <!-- Carousel items -->
+            <div class="carousel-inner">
+              <div class="active item"><img src="headshot/me-2012-07-23.png"></div>
+              <div class="item"><img src="headshot/me-lj-2012-07-23.png"></div>
+              <div class="item"><img src="headshot/me-2012-07-25.jpg"></div>
+            </div>
+            <!-- Carousel nav -->
+            <a class="carousel-control left" href="#HeadShotCarousel" data-slide="prev">&lsaquo;</a>
+            <a class="carousel-control right" href="#HeadShotCarousel" data-slide="next">&rsaquo;</a>
+          </div>
+        </div>
+        <!-- End Headshot Carousel -->
+        <!-- Speaker Information -->
+        <div class="span6">
+          <div class="row SpeakerInfo">
+            <div class="">
+              <span class=""><strong>Name</strong></span>
+              <span class="pull-right">Joe Q. Speaker</span>
+            </div>
+            <div class="">
+              <span class=""><strong>Location</strong></span>
+              <span class="pull-right">Anywhere, WA</strong></span>
+            </div>
+            <div class="">
+              <span class=""><strong>Company</strong></span>
+              <span class="pull-right">Acme, Inc.</span>
+            </div>
+            <br />
+            <div class="">
+              <h4>Bio</h4>
+              <p class="">
+                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.  <a href="#">More</a>
+              </p>
+            </div>
+          </div>
+          <!-- End Speaker Information -->
+          <div class="row">
+            
+            <div class="span3 btn-group">
+              <!-- <span class="btn btn-warning btn-small pull-left">Rating </span> -->
+              <a href="#" class="btn btn-warning btn-mini"><i class="icon-star icon-white"></i></a>
+              <a href="#" class="btn btn-warning btn-mini"><i class="icon-star icon-white"></i></a>
+              <a href="#" class="btn btn-mini"><i class="icon-star-empty"></i></a>
+              <a href="#" class="btn btn-mini"><i class="icon-star-empty"></i></a>
+              <a href="#" class="btn btn-mini"><i class="icon-star-empty"></i></a>
+            </div>
+            <div class="span3">
+              <button class="btn btn-success btn-mini pull-right" type="submit"><i class="icon-user icon-white"></i> Invite</button>
+              <button class="btn btn-primary btn-mini pull-right" type="submit"><i class="icon-eye-open icon-white"></i> Watch</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+      <!-- End First Row -->
+      
+      
+      <!-- Presentation and Upcoming Talks Block -->
+      <div class="row">
+        <div class="span6">
+          <h3 id="PresentationHeader" class="">
+            Presentations
+              <a "href="#">
+              <i class="pull-right icon-plus icon-black"></i>
+              </a>
+            </h2>
+            <div class="">
+              <table class="table table-striped table-bordered">
+                <tr><th>Title</th><th>Length</th></tr>
+                <tr>
+                  <td><a href="#">Presentation One</a></td><td>1 Hour</td>
+                </tr>
+                <tr>
+                  <td><a href="#">Presentation Two</a></td><td>30 Minutes</td>
+                </tr>
+                <tr>
+                  <td><a href="#">Presentation Three</a></td><td>10 Minutes</td>
+                </tr>
+                <tr>
+                  <td><a href="#">Presentation Four</a></td><td>1 Hour</td>
+                </tr>
+              </table>            
+              <ul class="pager">
+                <li class="previous">
+                <a href="#">&larr; Older</a>
+                </li>
+                <li class="next">
+                <a href="#">Newer &rarr;</a>
+                </li>
+              </ul>            
+          </div>
+    
+        </div>
+        <div class="span6">
+          <h3 id="UpcomingHeader" class="">
+          Upcoming Talks
+              <a href="#">
+              <i class="pull-right icon-plus icon-black"></i>
+              </a>          
+          </h2>
+           <div class="">
+            <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>Event</th><th><a href="#">Location</a></th><th><a href="#">Date</a><i href="#" class="icon-arrow-down pull-right"></i></th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Conference One</td>
+              <td><a href="#" class="label label-success">San Francisco, CA</a></td>
+              <td>January 28th, 2013</td>
+            </tr>
+            <tr>
+              <td>Conference Two</td>
+              <td><a href="#" class="label label-success">New York, NY</a></td>
+              <td>January 28th, 2013</td>
+              </tr>
+            <tr>
+              <td>Conference Three</td>
+              <td><a href="#" class="label label-success">Portland, OR</a></td>
+              <td>January 28th, 2013</td>
+              </tr>
+            <tr>
+              <td>Conference Four</td>
+              <td><a href="#" class="label label-success">Los Angeles, CA</a></td>
+              <td>January 28th, 2013</td>
+              </tr>
+            </tbody>
+            </table>
+              <ul class="pager">
+                <li class="previous">
+                <a href="#">&larr; Older</a>
+                </li>
+                <li class="next">
+                <a href="#">Newer &rarr;</a>
+                </li>
+              </ul>            
+           </div>
+       </div>
+      </div> 
+      <!-- End of Presentation and Upcoming Talks Block -->
+
+      <!-- Comments and Topics Block -->
+      <div class="row">
+        <div class="span6">
+          <h3 id="CommentsHeader" class="">
+            Comments
+              <a href="#">
+              <i class="pull-right icon-plus icon-black"></i>
+              </a>          
+          </h2>
+            <div class="well">
+              <div class="speaker-comment">
+                <div class="speaker-comment-date"><small class="pull-right label">07-25-2012</small></div>
+                <div class="alert alert-info">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</div>
+              </div>
+              <div class="speaker-comment">
+                <div class="speaker-comment-date"><small class="pull-right label">07-25-2012</small></div>
+                <div class="alert alert-info">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</div>
+              </div>
+              <div class="speaker-comment">
+                <div class="speaker-comment-date"><small class="pull-right label">07-25-2012</small></div>
+                <div class="alert alert-info">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</div>
+              </div>
+              <a class="btn btn-success pull-right">More</a>
+            </div>
+        </div>
+        
+        <div id="Topics" class="span6">
+          <h3 id="TopicsHeader" class="">
+            Topics
+            <a href="#">
+              <i class="pull-right icon-plus icon-white"></i>
+            </a>          
+          </h2>
+           <div id="TopicCloud" class="well">
+            <a class="label " href="http://builtwithbootstrap.com/tagged/bootstrap-2.0">bootstrap 2.0</a>
+            <a class="label " href="http://builtwithbootstrap.com/tagged/app">app</a>
+            <a class="label " href="http://builtwithbootstrap.com/tagged/all-of-bootstrap">all of bootstrap</a>
+            <a class="label " href="http://builtwithbootstrap.com/tagged/grid">grid</a>
+            <a class="label " href="http://builtwithbootstrap.com/tagged/fluid">fluid</a>
+            <a class="label " href="http://builtwithbootstrap.com/tagged/inline-labels">inline labels</a>
+            <a class="label " href="http://builtwithbootstrap.com/tagged/tabs">tabs</a>
+            <a class="label " href="http://builtwithbootstrap.com/tagged/pills">pills</a>
+            <a class="label " href="http://builtwithbootstrap.com/tagged/pagination">pagination</a>
+            <a class="label " href="http://builtwithbootstrap.com/tagged/alerts">alerts</a>
+            <a class="label " href="http://builtwithbootstrap.com/tagged/modals">modals</a>
+            <a class="label " href="http://builtwithbootstrap.com/tagged/tooltips">tooltips</a>
+            <a class="label " href="http://builtwithbootstrap.com/tagged/popovers">popovers</a>
+            <a class="label " href="http://builtwithbootstrap.com/tagged/submission">submission</a>
+            <a class="label " href="http://builtwithbootstrap.com/tagged/bootstrap-2.0">bootstrap 2.0</a>
+            <a class="label " href="http://builtwithbootstrap.com/tagged/app">app</a>
+            <a class="label " href="http://builtwithbootstrap.com/tagged/all-of-bootstrap">all of bootstrap</a>
+            <a class="label " href="http://builtwithbootstrap.com/tagged/grid">grid</a>
+            <a class="label " href="http://builtwithbootstrap.com/tagged/fluid">fluid</a>
+            <a class="label " href="http://builtwithbootstrap.com/tagged/inline-labels">inline labels</a>
+            <a class="label " href="http://builtwithbootstrap.com/tagged/tabs">tabs</a>
+            <a class="label " href="http://builtwithbootstrap.com/tagged/pills">pills</a>
+            <a class="label " href="http://builtwithbootstrap.com/tagged/pagination">pagination</a>
+            <a class="label " href="http://builtwithbootstrap.com/tagged/alerts">alerts</a>
+            <a class="label " href="http://builtwithbootstrap.com/tagged/modals">modals</a>
+            <a class="label " href="http://builtwithbootstrap.com/tagged/tooltips">tooltips</a>
+            <a class="label " href="http://builtwithbootstrap.com/tagged/popovers">popovers</a>
+            <a class="label " href="http://builtwithbootstrap.com/tagged/submission">submission</a>
+           </div>
+       </div>
+      </div> 
+      <!-- End of Presentation and Upcoming Talks Block -->
+      <hr>
+
+      <div class="row pull-right"
+        <footer>
+          <p>&copy; Company 2012</p>
+        </footer>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  
+  <script>
+    $('.HeadShotCarousel').carousel({interval: false})
+    
+  </script>
+
+  </body>
+</html>

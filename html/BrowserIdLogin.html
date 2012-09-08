@@ -1,0 +1,5 @@
+<a class="browserid_link" href="#">Sign In</a>
+<form method="POST" style="display:none;" action="{% url browserid_verify %}">
+{% csrf_token %}
+{{ browserid_form.as_p }}
+</form>

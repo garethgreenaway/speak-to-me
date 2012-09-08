@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+{% load dajaxice_templatetags %}
+{% include "header.html" %}
+{% load home_extras %}
+
+    <div class="bg-home-1"></div>
+    <div id="main-container" class="container">
+
+      <h4>Results for "{{ form|escape }}":</h4>
+      <hr />      
+    {{ speaker_results }}
+    {{ query_company_name }}
+    {{ query_location_name }}
+    {{ query_topics }}
+    
+      <hr />
+
+      <div class="row pull-right"
+        <footer>
+          <p>&copy; Elemental Aardvark 2012</p>
+        </footer>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.js"></script>
+  <script src="/static/js/bootstrap.js"></script>
+
+  <script src="/static/js/jquery.dataTables.js" type="text/javascript" ></script>
+    
+  <script src="/static/js/jquery.dajax.core.js" type="text/javascript" ></script>
+  <script src="/static/js/jquery.serializeObject.js" type="text/javascript"></script>
+  
+  <script src="https://browserid.org/include.js" type="text/javascript"></script>
+
+  <script src="/static/dataTables/js/bootstrap.js"></script>
+  
+  <script src="/static/js/custom.js"></script>
+  
+  {% dajaxice_js_import %}
+  <script>
+    
+    $(".collapse").collapse();
+    
+    /*
+    $(document).ready(function () {
+      $('#speaker-search-results').dataTable( {
+        "sDom": "<'row-fluid'<'span6' ><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+        "sPaginationType": "bootstrap",
+      });
+    });
+    
+    $(document).ready(function () {
+      $('#presentation-search-results').dataTable( {
+        "sDom": "<'row-fluid'<'span6' ><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+        "sPaginationType": "bootstrap",
+      });
+    });
+        
+    $.extend( $.fn.dataTableExt.oStdClasses, {
+      "sWrapper": "dataTables_wrapper form-inline"
+    } );
+    */
+  </script>
+  
+  </body>
+</html>

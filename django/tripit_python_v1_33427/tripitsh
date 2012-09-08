@@ -1,0 +1,8 @@
+#!/bin/sh
+
+VERSION='$Id: tripitsh 13378 2009-02-15 00:06:53Z denmark $'
+
+export API_URL=$1
+export PYTHONSTARTUP=tripitsh.py
+
+/usr/bin/env python

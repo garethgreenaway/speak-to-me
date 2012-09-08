@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+{% load dajaxice_templatetags %}
+{% include "header.html" %}
+{% load home_extras %}
+
+    <div class="bg-home-1"></div>
+    <div class="message"></div>
+    
+    <div id="main-container" class="container">
+      <div class="row-fluid">
+        <div id="left-sidebar" class="span2">
+            <div class="row-fluid">
+              <a id="see-logo" class="center" href="/find"></a>
+            </div>
+            <div class="row-fluid">
+              <a id="hear-logo" class="center" href="/hear"></a>
+            </div>
+            <div class="row-fluid">
+              <a id="speak-logo" class="center" href="/speak"></a>
+            </div>
+        </div>
+        <div class="span8">
+          <!-- Main Content -->
+          <section>
+            <header>
+              <h2>Activity</h2>
+            </header>
+          </section>                  
+        </div>
+
+        <div class="span2">
+          <!-- Side Bar Content -->
+          <aside>
+            <div class="vertical-box vertical-box-green pull-right">
+              <table class="table table-condensed" style="margin-bottom: 0px;">
+                <thead>
+                  <tr>
+                    <th colspan="2"><h5>{{ userprofile.first_name }} {{ userprofile.last_name }}</h5></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td> Presentations </td>
+                    <th class="right"> {{ userprofile.presentations.all|length }} </th>
+                  </tr>
+                  <tr>
+                    <td> Locations </td>
+                    <th class="right"> {{ userprofile.locations.all|length }} </th>
+                  </tr>
+                  <tr>
+                    <td> Following </td>
+                    <th class="right"> {{ userprofile.get_following|length }} </th>
+                  </tr>                                    
+                    <td> Followers </td>
+                    <th class="right"> {{ userprofile.get_followers|length }} </th>
+                  </tr>                                                      
+                </tbody>
+              </table>
+            </div>
+          </aside>
+        </div>
+      </div>
+ 
+      <hr />
+
+      <div class="row pull-right"
+        <footer>
+          <p>&copy; Elemental Aardvark 2012</p>
+        </footer>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.js"></script>
+  <script src="/static/js/bootstrap.js"></script>
+
+  <script src="/static/js/jquery.dataTables.js" type="text/javascript" ></script>
+    
+  <script src="/static/js/jquery.dajax.core.js" type="text/javascript" ></script>
+  <script src="/static/js/jquery.serializeObject.js" type="text/javascript"></script>
+  
+  <script src="https://browserid.org/include.js" type="text/javascript"></script>
+
+  <script src="/static/dataTables/js/bootstrap.js"></script>
+  
+  <script src="/static/js/custom.js"></script>
+  
+  {% dajaxice_js_import %}
+  <script>
+    /*
+    $(document).ready(function() {
+      window.history.pushState("object or string", "Title", "/new-url");
+      return false;
+    });
+    */
+  </script>
+  
+  </body>
+</html>

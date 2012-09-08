@@ -1,0 +1,81 @@
+/*!
+ * Custom Utils v2.0.4
+ *
+ */
+
+.popin {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: #FFFFFF;
+    background-image: none;
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: repeat;
+    background-size: auto auto;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    box-shadow: 0 0 20px #999999;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.spacer-single {
+    display: block;
+    height: 10px;
+}
+
+.spacer-double {
+    display: block;
+    height: 20px;
+}
+
+.spacer-triple {
+    display: block;
+    height: 30px;
+}
+
+.center {
+  margin: auto;
+  text-align: center;
+}
+
+.right {
+    text-align: right !important;
+}
+
+.left {
+    text-align: left !important;
+}
+
+.clear {
+    clear: both;
+}
+
+.clear-l {
+	clear: left;
+}
+
+.clear-r {
+	clear: right;
+}
+
+.clear-float:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.clear-float {display: inline-block;}
+* html .clear-float {height: 1%;}
+.clear-float {display: block;}
+
+

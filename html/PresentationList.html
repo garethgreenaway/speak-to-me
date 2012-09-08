@@ -1,0 +1,45 @@
+<!-- <div class=""> -->
+<div>
+    <ul id="presentation-thumbnails" class="thumbnails presentation-thumbnails">
+      {% for presentation in presentations %}
+        <li class='span3'>
+          <div><h5>{{ presentation.presentation_title|truncatechars:24 }}</h5></div>
+          {% if presentation.presentation_thumbnail %}
+            <div style="border: 1px solid #000; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);">
+              <a href="/presentation/thumbnail/{{ presentation.presentation_hash }}.pdf">
+                <img src="/presentation/thumbnail/{{ presentation.presentation_hash }}.png"> 
+<!--                <img src="{{ presentation.presentation_thumbnail }}"> -->
+              </a>
+            </div>
+          {% else %}
+            <div><img src='http://placehold.it/260x180'></div>
+          {% endif %}                      
+          <div><i class="icon-eye-open"></i> 100</div>
+        </li>
+      {% empty %}
+        <li class="span3"><strong>No Presentations Available</strong></li>
+      {% endfor %}      
+    </ul>
+  </div>
+  <div class="navbar pagination pagination-right">
+    <ul>
+      {% if presentations.has_previous %}
+        <li><a href="#" data-page="{{ presentations.previous_page_number }}">Prev</a></li>
+      {% else %}
+        <li><a class="disabled" href="#">Prev {{ presentations.page }}</a></li>
+      {% endif %}
+      {% for page in presentations.paginator.page_range %}
+        {% if page == presentations.number %}
+          <li class="active"><a href="#" data-page="{{ page }}">{{ page }}</a></li>
+        {% else %}
+          <li><a href="#" data-page="{{ page }}">{{ page }}</a></li>
+        {% endif %}
+      {% endfor %}
+      {% if presentations.has_next %}
+        <li><a href="#" data-page="{{ presentations.next_page_number }}">Next</a></li>
+      {% else %}
+        <li><a class="disabled" href="#">Next</a></li>
+      {% endif %}      
+    </ul>
+</div>
+<!-- </div> -->

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+{% include "header.html" %}
+
+    <div class="bg-home-1"></div>
+    <div id="main-container" class="container">
+
+      
+      <div id="hero-unit-home" class="row-fluid visible-desktop">
+        <div class="span12">
+            <div class="span4">
+              <a href="/find">
+                <img src="/static/img/monkey-see.png">
+              </a>
+            </div>
+            <div class="span4">
+              <a href="/hear">
+                <img src="/static/img/monkey-hear.png">
+              </a>
+            </div>
+            <div class="span4">
+              <a href="/speak">
+                <img src="/static/img/monkey-speak.png">
+              </a>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Logo for phones and tablets -->
+      <div id="hero-unit-home" class="row-fluid visible-phone visible-tablet">
+        <div class="span12">
+            <a href="/">
+              <img src="/static/img/monkey-stack_small.png">
+            </a>
+        </div>
+      </div>
+      
+      <div class="spacer-double"> </div>
+      <hr />
+      
+      <div class="row">
+        <div class="span2">&nbsp;</div>
+        <div class="span5">
+          <h2>Browse talks based on topic and locations.</h2>
+        </div>
+        <div class="span4">
+          <a class="btn btn-superlarge btn-success" href="/explore">Explore</a>
+        </div>
+      </div>
+      
+     <hr />
+     
+      <div class="spacer-triple"> </div>
+                  
+      <div class="marketing">
+        <div class="row">
+          <div class="span4">
+            <img class="bs-icon" src="/static/img/glyphicons/png/glyphicons_025_binoculars.png">
+            <h2>Find</h2>
+             <p>Planning an event?  Find speakers!</p>
+          </div>
+          <div class="span4">
+            <img class="bs-icon" src="/static/img/glyphicons/png/glyphicons_076_headphones.png">
+            <h2>Hear</h2>
+             <p>Interested in a particular topic?  Find a speaker.</p>
+         </div>
+          <div class="span4">
+            <img class="bs-icon" src="/static/img/glyphicons/png/glyphicons_355_announcement.png">
+            <h2>Speak</h2>
+            <p>Share your presentations and upcoming talks.</p>
+          </div>
+        </div>
+        <div class="spacer-double"> </div>      
+        <div class="row">
+          <div class="span4">
+            <img class="bs-icon" src="/static/img/glyphicons/png/glyphicons_043_group.png">
+            <h2>Social <span class="label label-info">Coming Soon</span></h2>
+             <p>Update social media with upcoming talks.</p>
+          </div>
+          <div class="span4">
+            <img class="bs-icon" src="/static/img/glyphicons/png/glyphicons_326_share.png">
+            <h2>Submit <span class="label label-info">Coming Soon</span></h2>
+             <p>You can submit your talks to events.</p>
+         </div>
+          <div class="span4">
+            <img class="bs-icon" src="/static/img/glyphicons/png/glyphicons_038_airplane.png">
+            <h2>Connect <span class="label label-info">Coming Soon</span></h2>
+            <p>Import your upcoming travel from TripIt, etc.</p>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="row pull-right"
+        <footer>
+          <p>&copy; Elemental Aardvark 2012</p>
+        </footer>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="/static/js/bootstrap.js"></script>
+  
+  <script src="https://browserid.org/include.js" type="text/javascript"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.js"></script>
+  <!-- Move into its own file -->  
+  <script type="text/javascript">
+    $(document).ready(function() {
+              $('.browserid_link').bind('click', function(e) {
+                    e.preventDefault();
+                    navigator.id.getVerifiedEmail(function(assertion) {
+                    if (assertion) {
+                        var $e = $('#id_assertion');
+                        $e.val(assertion.toString());
+                        $e.parent().submit();
+                    }
+                });
+            });
+        });
+  </script>
+  
+  </body>
+</html>
