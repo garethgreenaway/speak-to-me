@@ -1,0 +1,19 @@
+I've been using virtualenvwrapper to keep Python environments mostly separate and tidy:
+
+mkvirtualenv --system-site-packages speak-to-me
+
+There is a requirements.txt file inside the django folder than can be used by python to install all the necessary python bits.
+
+pip install -r django/requirements.txt
+
+Will need to edit django/mysite/localsettings.py and adjust for your environments.
+
+Certain tasks are using Django-Celery, which uses a MQ broker, I'm using rabbitmq with it.
+
+python manage.py celery worker --loglevel=debug
+
+You'll also need LibreOffice in headless mode running, used to convert docs, etc. into PDFs.
+
+/usr/lib/libreoffice/program/soffice.bin --headless --nologo --nofirststartwizard --accept="socket,host=127.0.0.1,port=2002;urp"
+
+Logins are using Mozilla Persona, the SITE_URL variable inside settings.py should be adjusted to the URL of the site, eg. http://localhost:8080
