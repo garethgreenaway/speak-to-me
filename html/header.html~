@@ -8,12 +8,16 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="/static/ajaxuploader/css/fileuploader.css" rel="stylesheet">
-    <!-- <link href="/static/dataTables/css/jquery.dataTables.css" rel="stylesheet">     -->
+<!--    <link href="/static/ajaxuploader/css/fileuploader.css" rel="stylesheet">-->
+    
     <link href="/static/css/style.css" rel="stylesheet">
+
     <link href="/static/css/utils.css" rel="stylesheet">
     <link href="/static/css/icons.css" rel="stylesheet">    
     <link href="/static/css/dataTables.css" rel="stylesheet">
+
+    <link href="/static/jquery/css/jquery.ui.all.css" rel="stylesheet">    
+    <link href="/static/jquery/css/jquery.ui.datepicker.css" rel="stylesheet">
         
     <style type="text/css">
       body {
@@ -22,7 +26,10 @@
       }
  
     </style>
-    <link href="/static/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/static/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    
+    <!-- Override Bootstrap Defaults -->
+    <link href="/static/css/override.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -38,8 +45,11 @@
   </head>
 
   <body>
+    <!-- Begin outer navbar div -->
     <div class="navbar navbar-fixed-top">
+      <!-- Begin navbar-inner div -->   
       <div class="navbar-inner">
+      <!-- Begin container div -->     
         <div class="container">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
@@ -47,11 +57,12 @@
             <span class="icon-bar"></span>
           </a>
           <a class="brand" href="/">Speak To Me</a>
+          <!-- Begin nav-collapse div -->     
           <div class="nav-collapse">
             <ul class="nav">
-              <li><a href="/add/presentation">Find</a></li>
-              <li><a href="/add/presentation">Hear</a></li>
-              <li><a href="/speak">Speak</a></li>              
+              <li><a href="/speak">Speak</a></li>            
+              <li><a href="/hear">Hear</a></li>
+              <li><a href="#">Find</a></li>              
             </ul>
             <ul class="nav pull-right">
                 <li class="">
@@ -60,9 +71,9 @@
                       {% csrf_token %}
                       <input type="text" id="q" name="q" class="search-query" placeholder="Search">
                     </form>
-                    <button id="advancedSearch" class="btn btn-mini btn-inverse dropdown-toggle" data-toggle="dropdown">
+                    <button id="advancedSearch" class="btn dropdown-toggle" data-toggle="dropdown">
                         <span class="caret"></span>
-                    </button>
+                    </button>                    
                     <ul class="dropdown-menu" aria-labelledby="advancedSearch">
                       <li>
                         <a href="/search/advanced/">Advanced Search</a>
@@ -82,8 +93,8 @@
                 {% else %}
                 <li class="">
                   <div class="btn-group">
-                    <button id="notificationsButton" class="btn btn-mini btn-inverse dropdown-toggle" data-toggle="dropdown">
-                      <i class="icon-inbox icon-white"></i>
+                    <button id="notificationsButton" class="btn dropdown-toggle" data-toggle="dropdown">
+                      <i class="icon-inbox icon"></i>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="notificationsButton">
                         <li><a href="/notifications/all">All Notifications</a></li>
@@ -92,8 +103,8 @@
                 </li>
                 <li class="active">
                   <div class="btn-group">
-                    <button class="btn btn-mini btn-inverse">{{ user.email }}</button>
-                    <button id="userMenu" class="btn btn-mini btn-inverse dropdown-toggle" data-toggle="dropdown">
+                    <button class="btn">{{ user.email }}</button>
+                    <button id="userMenu" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
                       <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="userMenu">
@@ -104,7 +115,8 @@
                       </li>
                       <li class="divider"></li>
                       <li>
-                        <a href="/add/presentation">
+                        <!-- <a href="/add/presentation"> -->
+                        <a href="/add/presentation/modal/" data-target="#addPresentationModal" data-toggle="modal" id="showPresentationModal">
                           <i class="icon-user icon-plus-sign"></i> Add Presentation
                         </a>
                       </li>
@@ -119,7 +131,7 @@
                       <li class="divider"></li>                      
                       <li>
                         <a href="/profile/edit">
-                        <i class="icon-cog icon-black"></i> Edit Details
+                        <i class="icon-cog icon-black"></i> Edit Profile
                         </a>
                       </li>
                       <li class="divider"></li>
@@ -134,6 +146,24 @@
                 {% endif %}
             </ul>
           </div>
+          <!-- End nav-collapse div -->               
         </div>
+        <!-- End container div -->     
       </div>
+      <!-- End navbar-inner div -->      
     </div>
+    <!-- End outer navbar div -->
+    <!-- Begin Presentation Modal -->
+    <div class="modal hide" id="addPresentationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Add Presentation</h3>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn btn-primary">Save changes</button>
+      </div>                        
+    </div>
+    <!-- End Presentation Modal -->    

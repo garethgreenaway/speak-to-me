@@ -34,7 +34,10 @@ urlpatterns = patterns('',
     url(r'^profile/edit/$', 'home.views.profile_edit'),
     
     url(r'^add/presentation/$', 'home.views.presentation_add'),
-    url(r'^add/location/$', 'home.views.location_add'),        
+    url(r'^add/presentation/modal/$', 'home.views.presentation_add_modal'),
+        
+    url(r'^add/location/$', 'home.views.location_add'),
+    url(r'^add/event/$', 'home.views.event_add'),            
     
     #url(r'^profile/new/personal', 'home.views.new_profile_personal'),
     #url(r'^profile/new/location', 'home.views.new_profile_location'),

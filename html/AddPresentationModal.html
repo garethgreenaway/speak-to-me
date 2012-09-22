@@ -1,0 +1,48 @@
+<!--{% load crispy_forms_tags %}-->
+<!--{% load dajaxice_templatetags %}-->
+
+<!--<html lang="en">-->
+<!--  <head>-->
+<!--    <link href="/static/css/style.css" rel="stylesheet">-->
+<!--    <link href="/static/ajaxuploader/css/fileuploader.css" rel="stylesheet">-->
+<!--  </head>-->
+<!--  <body>-->
+    
+    {% crispy presentation_form %} 
+
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>-->
+<!--    <script src="http://code.jquery.com/jquery-1.7.1.js" type="text/javascript"></script> -->
+
+
+<!--    <script src="/static/js/custom.js" type="text/javascript"></script>-->
+    <script src="/static/ajaxuploader/js/fileuploader.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var uploader = new qq.FileUploaderBasic( {
+          action: "{% url ajax_upload %}",
+          button: $('#presentation-upload-button')[0],
+          element: $('#file-uploader')[0],        
+          multiple: false,
+          onComplete: function( id, fileName, responseJSON ) {
+            console.log(responseJSON);
+            if( responseJSON.success ) {
+              $('#id_presentation_slides').val(responseJSON.path);
+              $('#upload-status').val('<small>Upload success</small>');
+            } else {
+              $('#upload-status').val('<small>Upload failed</small>');
+              console.log("Upload failed");
+            }
+          },
+          onAllComplete: function( uploads ) {
+            // uploads is an array of maps
+            // the maps look like this: { file: FileObject, response: JSONServerResponse }
+            //alert( "All complete!" ) ;
+          },
+          params: {
+            'csrf_token': '{{ csrf_token }}',
+            'csrf_name': 'csrfmiddlewaretoken',
+            'csrf_xname': 'X-CSRFToken',
+          },
+        } ) ;
+    </script>
+<!--  </body>-->
+<!--</html>-->

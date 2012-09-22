@@ -1,0 +1,12 @@
+/*!
+ * Override Bootstrap defaults
+ *
+ */
+
+.navbar-search {
+  margin-top: 0px;
+}
+
+.btn-group > .btn, .btn-group > .dropdown-menu {
+    font-size: 12px;
+}

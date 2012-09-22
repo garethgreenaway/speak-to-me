@@ -33,6 +33,8 @@ class UserProfile(models.Model):
   gplus_url = models.CharField(max_length=100, blank=True, verbose_name="Google Plus")
   website_url = models.CharField(max_length=100, blank=True, verbose_name="Website")
   
+  event_alert = models.IntegerField()
+  
   headshots = models.ManyToManyField(Headshot)    
   presentations = models.ManyToManyField(Presentation)    
   locations = models.ManyToManyField(Location)

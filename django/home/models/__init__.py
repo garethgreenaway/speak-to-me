@@ -11,6 +11,7 @@ from home.models.location import Location
 from home.models.presentation import Presentation
 from home.models.headshot import Headshot
 from home.models.userprofile import UserProfile
+from home.models.event import Event
     
 User.profile = property(lambda u: UserProfile.objects.get_or_create(user=u)[0])
 

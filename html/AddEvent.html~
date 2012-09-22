@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+{% load dajaxice_templatetags %}
+{% include "header.html" %}
+
+    <div class="bg-home-1"></div>
+    <div id="main-container" class="container">
+    
+      <!-- Begin Tabs -->
+      <div class="row-fluid">
+        <ul id="myTab" class="nav nav-tabs" id="myTab">
+          {% if event_form %}
+          <li class="active">
+            <a href="#event" data-toggle="tab">Add Event</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+      
+      <div class="row-fluid tab-content">
+      {% if event_form %}
+        <div class="tab-pane active" id="event">
+          <div id="id-event-form-alert"></div>        
+          {% crispy event_form %}
+        </div>
+      {% endif %}
+      </div>
+      
+      <!-- End Tabs -->
+
+      <div class="row pull-right">
+        <hr />
+        <footer>
+          <p>&copy; Elemental Aardvark 2012</p>
+        </footer>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript" ></script>
+  <script src="http://code.jquery.com/jquery-1.7.1.js" type="text/javascript" ></script>
+  <script src="/static/js/bootstrap.js" type="text/javascript" ></script>  
+  <script src="/static/js/jquery-ui-1.8.23.custom.js" type="text/javascript" ></script>  
+  <script src="/static/js/jquery.ui.datepicker.js" type="text/javascript" ></script>
+  <script src="/static/js/jquery.dajax.core.js" type="text/javascript" ></script>
+  <script src="/static/js/jquery.serializeObject.js" type="text/javascript"></script>
+  
+  <script src="https://browserid.org/include.js" type="text/javascript"></script>
+  
+  {% dajaxice_js_import %}
+  <script src="/static/ajaxuploader/js/fileuploader.js" type="text/javascript"></script>
+  <script src="/static/js/custom.js" type="text/javascript"></script>
+  
+  <script type="text/javascript">
+  
+  $(document).ready(function() {
+  	$( "#id_start_date" ).datepicker({
+			defaultDate: "+1w",
+			changeMonth: true,
+			numberOfMonths: 3,
+			onSelect: function( selectedDate ) {
+				$( "#id_end_date" ).datepicker( "option", "minDate", selectedDate );
+			}
+		});
+		$( "#id_end_date" ).datepicker({
+			defaultDate: "+1w",
+			changeMonth: true,
+			numberOfMonths: 3,
+			onSelect: function( selectedDate ) {
+				$( "#id_start_date" ).datepicker( "option", "maxDate", selectedDate );
+			}
+		});      
+  }); 
+  </script>
+  </body>
+</html>

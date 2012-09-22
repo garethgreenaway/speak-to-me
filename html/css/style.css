@@ -3,20 +3,21 @@
  *
  */
 
-@import url(bootstrap.css);
+@import url(/static/bootstrap/css/bootstrap.css);
 
 body {
-  /* background-color: #e6e6e6; */
   background-color: #000;
   font-size: 12px;
-/*
-  position: relative;
-  padding-top: 20px;
-  background-image: url('/static/css/page_bg.png');
-  background-repeat: repeat-y;
-  background-position: 0 40px;
-  background-size: 100% auto;
-*/
+}
+
+#q
+{
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+#div_id_presentation_hidden .controls {
+  margin-left: 0px;
 }
 
 #main-container {
@@ -26,16 +27,13 @@ body {
 }
 
 .bg-home-1 {
-  background-image: url('/static/img/bg_test.png');
+/*  background-image: url('/static/img/bg_test.png'); */
+  background-image: url('/static/img/background.png');
   position: fixed;
   width: 100%;
+  height: 100%;  
   z-index: -1000;
   top: 0;
-  height: 100%;
-}
-
-.navbar-search {
-  margin-top: 0px;
 }
 
 .btn-superlarge {
@@ -63,37 +61,61 @@ body {
   background-image: linear-gradient(#3C6080, #294157);
 }
 
-#hero-unit-home #see-logo {
+#see-logo {
   background: url(/static/img/monkey-stack-scaled2.png) no-repeat 0px 0px;
   width: 182px;
   height: 150px;
   display: block;
 }
 
-#hero-unit-home #see-logo:hover {
+#see-logo:hover {
     background-position: -182px 0px;
 }
 
-#hero-unit-home #hear-logo {
-  background: url(/static/img/monkey-stack-scaled2.png) no-repeat 0px -160px;
+#hear-logo {
+  background: url(/static/img/monkey-stack-scaled2.png) no-repeat 0px -162px;
   width: 182px;
   height: 150px;
   display: block;
 }
 
-#hero-unit-home #hear-logo:hover {
-    background-position: -182px -160px;
+#hear-logo:hover {
+    background-position: -182px -162px;
 }
 
-#hero-unit-home #speak-logo {
+#hear-logo h4 {
+  position: relative;
+  top: 151px;
+  left: 12px;
+  text-align: center;
+  color: #000;
+  background-color: #FFD700;
+  -webkit-border-radius: 6px 6px 0 0;
+  -moz-border-radius: 6px 6px 0 0;
+  border-radius: 6px 6px 0 0;
+}
+
+#speak-logo {
   background: url(/static/img/monkey-stack-scaled2.png) no-repeat 0px -336px;
   width: 182px;
   height: 150px;
   display: block;
 }
 
-#hero-unit-home #speak-logo:hover {
+#speak-logo:hover {
     background-position: -182px -336px;
+}
+
+#speak-logo h4 {
+  position: relative;
+  top: 151px;
+  left: 12px;
+  text-align: center;
+  color: #000;
+  background-color: #FFD700;
+  -webkit-border-radius: 6px 6px 0 0;
+  -moz-border-radius: 6px 6px 0 0;
+  border-radius: 6px 6px 0 0;
 }
 
 #left-sidebar {
@@ -176,10 +198,16 @@ body {
     color: #3E3E3E;
 }
 
-#hero-unit-home h2 {
-  padding-left: 20px;
+#hero-unit-home h4 {
+  position: relative;
+  top: 151px;
+  left: 12px;
   text-align: center;
-  color: #FFFFFF;
+  color: #000;
+  background-color: #FFD700;
+  -webkit-border-radius: 6px 6px 0 0;
+  -moz-border-radius: 6px 6px 0 0;
+  border-radius: 6px 6px 0 0;
 }
 
 #speakers {
@@ -239,20 +267,6 @@ body {
   width: 200px;
 }
 
-/*
-.row {
-  margin-left: 0px;
-  padding-left: 0px;
-}
-*/
-
-/*
-.SpeakerInfo {
-  background-color: #BFBFBF;
-}
-
-*/
-
 #SpeakerInfoWell {
   padding-left: 0px;
   margin-left: 0px;
@@ -267,23 +281,11 @@ body {
   line-height: 28px;
 }
 
-/*
-.SpeakerInfo .row-fluid [class*="span"] {
-  min-height: 18px;
-}
-*/
-
 #HeadShotCarousel .carousel-control {
   top: 100%;
 }
 
 #TopicsHeader {
-/*
-  background-color: #4BB1CF;
-  background-image: -moz-linear-gradient(center top , #5BC0DE, #339BB9);
-  background-repeat: repeat-x;
-  color: #FFF;
-*/
   padding: 0;
   padding-left: 10px;
   margin-bottom: 0;
@@ -318,16 +320,10 @@ body {
 }
 
 .tag {
-    /*    padding: 0px 6px 0px 4px;*/
     margin-right: 4px;
     border: 1px solid transparent;
-    /*    background-color: #E8EBEC;*/
-    /*    -webkit-border-radius: 4px;*/
-    /*    -moz-border-radius: 4px;*/
     color: #234B6F;
     white-space: nowrap;
-    /*    overflow: scroll;*/
-    /*    display: inline-block;*/
 }
 
 .tag:hover {

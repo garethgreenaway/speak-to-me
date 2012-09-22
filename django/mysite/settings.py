@@ -91,7 +91,7 @@ STATIC_URL = '/static/'
 #STATICFILES_DIRS = os.path.join(CURRENT_DIR, 'html')
 # Additional locations of static files
 STATICFILES_DIRS = (
-    '/home/gareth/Dropbox/Public/code/site/html',
+    '/home/gareth/Dropbox/Public/code/speak-to-me/html',
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -136,7 +136,7 @@ TEMPLATE_DIRS = (
 #    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
 #    # Always use forward slashes, even on Windows.
 #    # Don't forget to use absolute paths, not relative paths.
-    '/home/gareth/Dropbox/Public/code/site/html',
+    '/home/gareth/Dropbox/Public/code/speak-to-me/html',
 #    #'/home/gareth/Dropbox/Public/code/mysite',
 #    #'/home/gareth/Dropbox/Public/code/mysite/links',
 )
@@ -154,6 +154,7 @@ INSTALLED_APPS = (
     'links',
     'home',
     'crispy_forms',
+    'floppyforms',
     'dajaxice',
     'dajax',
     'debug_toolbar',

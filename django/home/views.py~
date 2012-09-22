@@ -18,10 +18,10 @@ from taggit.models import TaggedItem, Tag
 
 from geopy import geocoders
 
-from home.models import UserProfile, Location, Presentation
+from home.models import UserProfile, Location, Presentation, Event
 from links.models import TripItUser
 
-from home.forms import ProfilePersonalForm, ProfileLocationForm, ProfilePresentationForm, AdvancedSearchForm
+from home.forms import ProfilePersonalForm, ProfileLocationForm, ProfilePresentationForm, AdvancedSearchForm, EventForm
 
 from ajaxuploader.views import AjaxFileUploader
 
@@ -60,51 +60,66 @@ def index(request):
       return render_to_response('index.html', locals(), context_instance = RequestContext(request))
 
 def hear(request):
-  pass
+  if request.user.is_authenticated():
+    #return render_to_response('AuthenicatedHear.html', locals(), context_instance = RequestContext(request))
+    return render_to_response('Hear.html', locals(), context_instance = RequestContext(request))    
+  else:
+    return render_to_response('Hear.html', locals(), context_instance = RequestContext(request))
+
   
 def find(request):
-  pass
+  if request.user.is_authenticated():
+    #return render_to_response('AuthenicatedFind.html', locals(), context_instance = RequestContext(request))
+    return render_to_response('Find.html', locals(), context_instance = RequestContext(request))    
+  else:
+    return render_to_response('Find.html', locals(), context_instance = RequestContext(request))
 
+def speak(request):
+  if request.user.is_authenticated():
+    return render_to_response('Speak.html', locals(), context_instance = RequestContext(request))  
+    #return render_to_response('AuthenicatedSpeak.html', locals(), context_instance = RequestContext(request))
+  else:
+    return render_to_response('Speak.html', locals(), context_instance = RequestContext(request))
+  
 def explore(request):
   pass
   
 def signup(request):
-
   page_title = "Sign Up"
   return render_to_response('signup.html', locals(), context_instance = RequestContext(request))
   
-@login_required
-def speak(request):
+#@login_required
+#def speak(request):
 
-    # Set everything to false
-    personal_form = location_form = presentation_form = ""
-    
-    if request.user.is_authenticated():
-        user = User.objects.get(email = request.user.email)
-        
-        # New Profile
-        if user.profile.new_profile:
+#    # Set everything to false
+#    personal_form = location_form = presentation_form = ""
+#    
+#    if request.user.is_authenticated():
+#        user = User.objects.get(email = request.user.email)
+#        
+#        # New Profile
+#        if user.profile.new_profile:
 
-          if not user.profile.first_name:
-            personal_form = ProfilePersonalForm()
-          
-          if len(user.profile.locations.all()) == 0:
-            location_form = ProfileLocationForm()
-            
-          if len(user.profile.presentations.all()) == 0:
-            presentation_form = ProfilePresentationForm()
-            
-          #if len(user.profile.upcomingtalks.all()) == 0:
-          # upcomingtalks_form = ProfileUpcomingTalksForm()
-          
-          return render_to_response('CreateNewProfile.html', locals(), context_instance = RequestContext(request))
-        else:
-        
-          logger.error("before the call to get_presentations")
-          logger.error(user.profile.user_hash)
-          presentations = get_presentations(user.profile.user_hash)
-        
-          return render_to_response('SpeakerProfile.html', locals(), context_instance = RequestContext(request))
+#          if not user.profile.first_name:
+#            personal_form = ProfilePersonalForm()
+#          
+#          if len(user.profile.locations.all()) == 0:
+#            location_form = ProfileLocationForm()
+#            
+#          if len(user.profile.presentations.all()) == 0:
+#            presentation_form = ProfilePresentationForm()
+#            
+#          #if len(user.profile.upcomingtalks.all()) == 0:
+#          # upcomingtalks_form = ProfileUpcomingTalksForm()
+#          
+#          return render_to_response('CreateNewProfile.html', locals(), context_instance = RequestContext(request))
+#        else:
+#        
+#          logger.error("before the call to get_presentations")
+#          logger.error(user.profile.user_hash)
+#          presentations = get_presentations(user.profile.user_hash)
+#        
+#          return render_to_response('SpeakerProfile.html', locals(), context_instance = RequestContext(request))
 
 def signup(request):
 
@@ -290,6 +305,13 @@ def advanced_search(request):
       
     return render_to_response("advanced_search.html", locals(), context_instance = RequestContext(request))  
 
+def event_add(request):
+  if request.user.is_authenticated():
+    user = User.objects.get(email = request.user.email)
+      
+    event_form = EventForm()
+    return render_to_response('AddEvent.html', locals(), context_instance=RequestContext(request))
+
 def location_add(request):
   if request.user.is_authenticated():
     user = User.objects.get(email = request.user.email)
@@ -303,6 +325,13 @@ def presentation_add(request):
       
     presentation_form = ProfilePresentationForm(form_skip_button = False)
     return render_to_response('AddPresentation.html', locals(), context_instance=RequestContext(request))
+    
+def presentation_add_modal(request):
+  if request.user.is_authenticated():
+    user = User.objects.get(email = request.user.email)
+      
+    presentation_form = ProfilePresentationForm(form_skip_button = False, modal_form = True)
+    return render_to_response('AddPresentationModal.html', locals(), context_instance=RequestContext(request))    
     
 def presentation_thumbnail(request, presentation_hash):
     presentation = Presentation.objects.get(presentation_hash = presentation_hash)
@@ -365,7 +394,9 @@ def profile_show(request, user_hash = None):
   
 def profile_edit(request):
   if request.user.is_authenticated():
-      user = User.objects.get(email = request.user.email)  
+      user = User.objects.get(email = request.user.email)
+      
+      return render_to_response('EditProfile.html', locals(), context_instance = RequestContext(request))
     
   
 

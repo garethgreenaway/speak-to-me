@@ -9,9 +9,7 @@ class AdvancedSearchForm(forms.Form):
   speaker_name = forms.CharField(required=False)
   company_name = forms.CharField(required=False)
   location = forms.CharField(label="or enter", required=False)
-  location_choices = forms.ChoiceField(label="Select Location", required=False,
-    initial = '0',
-  )
+  location_choices = forms.ChoiceField(label="Select Location", required=False, initial = '0')
   distance = forms.ChoiceField(required=False,
     choices = (
       ('10', "10"),
@@ -26,6 +24,7 @@ class AdvancedSearchForm(forms.Form):
       ('miles', "miles"),
       ('kilometers', "kilometers")
     ),
+    label="",
     initial = 'miles',
   )  
   topics = forms.CharField(required=False)
@@ -51,16 +50,22 @@ class AdvancedSearchForm(forms.Form):
         Div(
           Field('location_choices', css_class="input-xlarge span6"),
           Field('location', placeholder="city, state/province, country", css_class="input-xlarge span6"),
-          Field('distance', css_class="span1"),
-          Field('measurement', css_class="span2"),
+          Div(
+            Div('distance', css_class="span3"),
+            Div('measurement', css_class="span3"),
+            css_class="row-fluid"
+          )
         )
       )
     else:
       location_layout = Layout(
         Div(
-          Field('location', placeholder="eg. city, state/province, country", css_class="input-xlarge span6"),
-          Field('distance', css_class="span1"),
-          Field('measurement', css_class="span2")
+          Field('location', placeholder="eg. city, state/province, country", title="Location", label="Location", css_class="input-xlarge span6"),
+          Div(
+            Div('distance', css_class="span3"),
+            Div('measurement', css_class="span3"),
+            css_class="row-fluid"
+          )
         )      
       )    
     
