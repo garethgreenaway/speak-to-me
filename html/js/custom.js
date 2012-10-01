@@ -1,3 +1,15 @@
+$('form :submit.ajax_single_submit').live('click', function(e) {
+  e.preventDefault();
+
+  // Get the form for the submit button being pressed
+  var form = $('#' + this.id).parents('form').get(0).id
+  console.log(form)
+  
+  // Serial the data and send it along to the send_form function
+  data = $('#' + form).serializeObject();
+  Dajaxice.home.send_form(Dajax.process, {'form':data,'form_id':form});
+});
+
 $('form :submit.ajax_submit').live('click', function(e) {
   e.preventDefault();
 

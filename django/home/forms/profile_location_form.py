@@ -26,15 +26,35 @@ class ProfileLocationForm(ModelForm):
         
     self.helper.layout = Layout(
       Fieldset(
-        'Primary Address',
+        'Address',
         Field('nickname', css_class="input-xlarge"),
+        HTML("<hr />"),
         Div(
-          Field('street_address', css_class="input-xlarge"),
-          Field('street_address_hidden', css_class="input-xlarge"),
-          css_id="street_address_block"
+          Div(
+            Field('street_address', css_class="input-xlarge"),
+            css_class="span4"
+          ),
+          Div(
+            Field('street_address_hidden', css_class="input-xlarge"),
+            css_class="span4"
+          ),
+          css_class="row-fluid"
         ),
-        Field('city', css_class="input-xlarge"),
-        Field('city_hidden', css_class="input-xlarge"),
+        Div(              
+          Field('street_address_two', css_class="input-xlarge"),
+        ),
+        HTML("<hr />"),        
+        Div(
+          Div(
+            Field('city', css_class="input-xlarge"),
+            css_class="span4"
+          ),
+          Div(            
+            Field('city_hidden', css_class="input-xlarge"),
+            css_class="span4"
+          ),
+          css_class="row-fluid"          
+        ),            
         Field('state', css_class="input-xlarge"),
         Field('country', css_class="input-xlarge"),
       ),

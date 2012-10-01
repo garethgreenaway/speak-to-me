@@ -36,7 +36,7 @@ DATABASES = {
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'America/Los_Angeles'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -91,7 +91,6 @@ STATIC_URL = '/static/'
 #STATICFILES_DIRS = os.path.join(CURRENT_DIR, 'html')
 # Additional locations of static files
 STATICFILES_DIRS = (
-    '/home/gareth/Dropbox/Public/code/site/html',
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -136,7 +135,7 @@ TEMPLATE_DIRS = (
 #    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
 #    # Always use forward slashes, even on Windows.
 #    # Don't forget to use absolute paths, not relative paths.
-    '/home/gareth/Dropbox/Public/code/site/html',
+#    '/home/gareth/Dropbox/Public/code/speak-to-me/html',
 #    #'/home/gareth/Dropbox/Public/code/mysite',
 #    #'/home/gareth/Dropbox/Public/code/mysite/links',
 )
@@ -154,10 +153,13 @@ INSTALLED_APPS = (
     'links',
     'home',
     'crispy_forms',
+    'floppyforms',
     'dajaxice',
     'dajax',
     'debug_toolbar',
     'ajaxuploader',
+    'taggit',
+    'taggit_templatetags',
     #'south',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
@@ -167,7 +169,7 @@ INSTALLED_APPS = (
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django_browserid.context_processors.browserid_form',
-    'django.contrib.auth.context_processors.auth'
+    'django.contrib.auth.context_processors.auth',
 )
 
 AUTHENTICATION_BACKENDS = (
@@ -234,7 +236,16 @@ DEBUG_TOOLBAR_PANELS = (
     'debug_toolbar.panels.logger.LoggingPanel',
 )
 
+DEBUG_TOOLBAR_CONFIG = {
+	'INTERCEPT_REDIRECTS': False,
+}
+
 DAJAXICE_MEDIA_PREFIX="dajaxice"
+
+INTERNAL_IPS = ('127.0.0.1', '172.23.5.3')
+
+TAGGIT_TAGCLOUD_MIN=1.0
+TAGGIT_TAGCLOUD_MAX=12.0
 
 try:
   from localsettings import *

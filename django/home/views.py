@@ -21,7 +21,8 @@ from geopy import geocoders
 from home.models import UserProfile, Location, Presentation, Event
 from links.models import TripItUser
 
-from home.forms import ProfilePersonalForm, ProfileLocationForm, ProfilePresentationForm, AdvancedSearchForm, EventForm
+from home.forms import ProfilePersonalForm, ProfileSpeakerForm, ProfileSocialForm, ProfileNotificationsForm
+from home.forms import ProfileLocationForm, ProfilePresentationForm, AdvancedSearchForm, EventForm
 
 from ajaxuploader.views import AjaxFileUploader
 
@@ -382,19 +383,19 @@ def profile_show(request, user_hash = None):
     s = p.userprofile_set.get()
     if s not in similar_speakers:
       similar_speakers.append(s)
-      
-  #for i in profile_presentations:
-  #  for j in i.presentation_topics.similar_objects():
-  #      for k in j.userprofile_set.all():
-  #        if k != speakerprofile and k not in similar_speakers:
-  #          similar_speakers.append(k)
-
   
   return render_to_response('SpeakerProfile.html', locals(), context_instance = RequestContext(request))
   
 def profile_edit(request):
   if request.user.is_authenticated():
+      logger.error(request.user)
       user = User.objects.get(email = request.user.email)
+      userprofile = user.profile
+      
+      personal_form = ProfilePersonalForm(instance = userprofile)
+      speaker_profile_form = ProfileSpeakerForm(instance = userprofile)      
+      social_form = ProfileSocialForm(instance = userprofile)
+      notifications_form = ProfileNotificationsForm(instance = userprofile)            
       
       return render_to_response('EditProfile.html', locals(), context_instance = RequestContext(request))
     

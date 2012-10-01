@@ -26,14 +26,16 @@ class UserProfile(models.Model):
   
   first_name = models.CharField(max_length=100)
   last_name = models.CharField(max_length=100)
-  languages = TaggableManager(verbose_name="Languages", blank=True)
+  languages = TaggableManager(verbose_name="Languages", help_text="", blank=True)
   company = models.CharField(max_length=100, blank=True)
   personal_bio = models.CharField(max_length=700)
-  twitter_url = models.CharField(max_length=100, blank=True, verbose_name="Twitter")
-  gplus_url = models.CharField(max_length=100, blank=True, verbose_name="Google Plus")
-  website_url = models.CharField(max_length=100, blank=True, verbose_name="Website")
   
-  event_alert = models.IntegerField()
+  twitter_url = models.CharField(max_length=100, blank=True, verbose_name="Twitter", default="")
+  gplus_url = models.CharField(max_length=100, blank=True, verbose_name="Google Plus", default="")
+  website_url = models.CharField(max_length=100, blank=True, verbose_name="Website", default="")
+  
+  # Number of days before an event to alert user
+  days_to_event_notify = models.IntegerField(blank=True, default=-1, max_length=3, verbose_name="Notify Me of Events")
   
   headshots = models.ManyToManyField(Headshot)    
   presentations = models.ManyToManyField(Presentation)    

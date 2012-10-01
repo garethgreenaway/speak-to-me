@@ -27,6 +27,10 @@
     font-weight: bold;
 }
 
+.underline {
+    text-decoration: underline;
+}
+
 .spacer-single {
     display: block;
     height: 10px;

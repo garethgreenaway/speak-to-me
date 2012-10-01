@@ -2,7 +2,6 @@ from django import forms
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Button, Column, Div, Field, Fieldset, HTML, Hidden, Layout, MultiField, Row, Submit
-from crispy_forms.custom_layout import FieldPlain
 from crispy_forms.bootstrap import AppendedText, FormActions, PrependedText
 
 from django.forms import ModelForm

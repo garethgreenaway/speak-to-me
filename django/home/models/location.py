@@ -9,9 +9,10 @@ class Location(models.Model):
     
   nickname = models.CharField(max_length=100, verbose_name="Nick Name")
 
-  street_address = models.CharField(max_length=100)
+  street_address = models.CharField(max_length=100)  
+  street_address_two = models.CharField(max_length=100, verbose_name = "Street Address 2", blank = True, null = True)
   street_address_hidden = models.BooleanField(verbose_name="Hidden")
-  
+      
   city = models.CharField(max_length=100)
   city_hidden = models.BooleanField(verbose_name="Hidden")
   

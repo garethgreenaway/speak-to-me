@@ -7,8 +7,14 @@ from crispy_forms.bootstrap import AppendedText, FormActions, PrependedText
 from django.forms import ModelForm
 
 from home.forms.profile_presentation_form import ProfilePresentationForm
+
 from home.forms.profile_location_form import ProfileLocationForm
+
 from home.forms.profile_personal_form import ProfilePersonalForm
+from home.forms.profile_personal_form import ProfileSpeakerForm
+from home.forms.profile_personal_form import ProfileNotificationsForm
+from home.forms.profile_personal_form import ProfileSocialForm
+
 from home.forms.advanced_search_form import AdvancedSearchForm
 from home.forms.add_event_form import EventForm
 
