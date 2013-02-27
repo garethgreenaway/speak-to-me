@@ -71,7 +71,7 @@ MEDIA_URL = ''
 STATIC_ROOT = ''
 
 #SITE_URL = 'http://172.23.5.21:8000'
-SITE_URL = 'http://localhost:8080'
+SITE_URL = 'http://localhost:8000'
 #SITE_URL = 'http://blackoil.loc.wiked.org:8080'
 
 LOGIN_REDIRECT_URL = '/'
